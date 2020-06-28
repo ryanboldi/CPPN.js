@@ -38,7 +38,7 @@ someInputsDisc = true; // Whether or not to start with some inputs disconnected
 tanh = (x) => { return Math.tanh(x) };
 
 // normalised and shifted modified sigmoidal transfer function <- steepedned sigmoid that allows more fine tuning at extreme activations
-sigmoid = (x) => { return 1 / (1 + (Math.E ** (-(4.9) * x)))};
+sigmoid = (x) => { return 1 / (1 + (Math.E ** (-(4.9) * x))) };
 
 //step function
 step = (x) => {
@@ -49,14 +49,16 @@ step = (x) => {
 
 identity = (x) => { return x };
 
-abs = (x) => {return Math.abs(x)}
+abs = (x) => { return Math.abs(x) }
 
-gauss = (x) => {
-    return (exp((-1/2)*(x**2)))
+gauss = (x) => { return (exp((-1 / 2) * (x ** 2))) }
+
+mod = (x) => { return (x % 1) };
+
+sine = (x) => {
+    angleMode(RADIANS)
+    return (sin(x))
 }
-
-mod = (x) => {return (x % 1)};
-
 
 
 function normalise(val, minVal, maxVal, newMin, newMax) {
