@@ -57,8 +57,9 @@ gauss = (x) => { return (exp((-1 / 2) * (x ** 2))) }
 mod1 = (x) => { return (x % 1) };
 
 sine = (x) => {
+    let rads = normalise(x, 0, 1, 0, PI)
     angleMode(RADIANS)
-    return (sin(x))
+    return (sin(rads))
 }
 
 mod5 = (x) => {return (x % 5)}
