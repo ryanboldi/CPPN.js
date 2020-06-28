@@ -13,6 +13,7 @@ N_cutoff = 1; //how big a genome has to be so that we normalise it's excess and 
 not_improve_cutoff = 15; // if the max fitness of the species doesnt increase in this many generations, the networks will not be allowed to reproduce
 //champion of each species with more than five networks was copied into next generation unchanged
 weight_mut_rate = 0.8;
+node_change_rate = 0.3; //change a node's activation
 mut_toggle_enable_prob = 0.05;
 uniform_perturbance = 0.9; // if weights mutated, 90% chance they are uniformly perturbed. 10% they are assigned new random value
 disable_inherited_disabled_gene = 0.75;
@@ -22,7 +23,7 @@ node_add_rate = 0.03;//0.03
 connec_add_rate = 0.05;
 large_pop_connec_rate = 0.3; // if populations are very big, then we can tolerate a larger number of prospective species and greater topological diversity.
 
-survivalThreshold = 0.5;// top 20% of population survive
+survivalThreshold = 0.5;// top x% of population survive
 
 //GA variables
 population = 150;
@@ -59,6 +60,8 @@ sine = (x) => {
     angleMode(RADIANS)
     return (sin(x))
 }
+
+let funcs = [tanh, sigmoid, identity, abs, gauss, mod, sine];
 
 
 function normalise(val, minVal, maxVal, newMin, newMax) {

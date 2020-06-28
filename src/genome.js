@@ -113,6 +113,13 @@ class Genome {
         this.add_connection(n, c_out, c_w);
     }
 
+    mu_change_node(){
+        //pick a random node that isnt an input or bias
+        picked = Math.floor(random()*(this.nodes.length - (this.inputs + 1)))
+        picked += (this.inputs + 1);
+        this.nodes[picked].activation = random(funcs);
+    }
+
     //feeds info down ONE CONNECTION.
     /**
      * 
@@ -211,6 +218,8 @@ class Genome {
 
         //add new connection
         if (Math.random() < connec_add_rate) this.mu_add_connection();
+
+        if (Math.random() < node_change_rate) this.mu_change_node();
 
         for (let i = 0; i < this.connections.length; i++) {
             if (Math.random() < weight_mut_rate) {
