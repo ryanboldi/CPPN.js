@@ -48,16 +48,16 @@ class Population {
         //console.log(this.species);
     }
 
-    //assigns every genomes .fitness value to thef itness function
+    //assigns every genomes .fitness value to the fitness function
     fitness() {
         let tot = 0;
         for (let i = 0; i < this.genomes.length; i++) {
-            this.genomes[i].fitness = getFitXOR(this.genomes[i]);
+            //this.genomes[i].fitness = getFitXOR(this.genomes[i]);
             tot += this.genomes[i].fitness
-            if (getFitXOR(this.genomes[i]) > this.bestFitness) {
-                this.bestFitness = getFitXOR(this.genomes[i]);
-                this.bestCreature = this.genomes[i];
-            }
+            //if (getFitXOR(this.genomes[i]) > this.bestFitness) {
+              //  this.bestFitness = getFitXOR(this.genomes[i]);
+              //  this.bestCreature = this.genomes[i];
+           // }
         }
         this.averageFitness = (tot / this.genomes.length);
     }
