@@ -1,11 +1,13 @@
 let width = 520;
 let height = 520;
 
+let img;
 
 function setup() {
     createCanvas(width, height);
 
-    let img = createImage(width, height);
+    img = createImage(width, height)
+
     img.loadPixels();
     let g = new Genome(2, 3);
 
@@ -18,8 +20,14 @@ function setup() {
 
     img.updatePixels();
     image(img, 0, 0);
+
+
 }
 
 function draw() {
 
+}
+
+function save(){
+    img.save('photo','png');
 }
