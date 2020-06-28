@@ -76,38 +76,6 @@ function normalise(val, minVal, maxVal, newMin, newMax) {
 };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //initialize the population
 function init() {
 
