@@ -1,31 +1,36 @@
-let width = 256;
-let height = 256;
+
 
 let img;
-let g;
-let f;
-let m;
+let photoAmt = 16 //SQUARE NUMBER
+let photoWidth = 200;
+let photoHeight = 200;
+
+
+let width = Math.sqrt(photoAmt) * photoWidth;
+let height = Math.sqrt(photoAmt) * photoHeight;
+
+let photos = [];
 
 
 function setup() {
     createCanvas(width, height);
-    g = new Genome(2, 3);
-    f = new Genome(2, 3);
+    for (let i = 0; i < photoAmt; i++) {
+        photos.push(new Genome(2, 3));
+    }
+    drawPhoto();
 }
 
 function draw() {
-    img = createImage(width, height);
     
-    drawPhoto(g);
-    g.Mutate();
-
-    
-    drawPhoto(f);
-    f.Mutate();
+    //g.Mutate();
 
 
-    m = crossover(f, g);
-    drawPhoto(m);
+    // drawPhoto(f);
+    // f.Mutate();
+
+
+    //m = crossover(f, g);
+    //drawPhoto(m);
     //m.Mutate();
 }
 
@@ -33,21 +38,31 @@ function save() {
     img.save('photo', 'png');
 }
 
-function drawPhoto(genome) {
-    img.loadPixels();
-
-
+function drawPhoto() {
+    
     //for (let i = 0; i< 100; i++){
     //   g.mu_add_node();
     //}
+    let x = 0;
+    let y = 0;
     colorMode(RGB, 0.1);
-    for (let i = 0; i < img.width; i++) {
-        for (let j = 0; j < img.height; j++) {
-            let outputs = genome.feedforward([i / width, j / height]); //, Math.sqrt((i/width)**2 + (j/height)**2)
-            //img.set(i, j, color(Math.abs(outputs[0]), Math.abs(outputs[1]), Math.abs(outputs[2])));
-            img.set(i, j, color(outputs[0], outputs[1], outputs[2]));
+    for (let k = 0; k < photos.length; k++) {
+        img = createImage(photoWidth, photoHeight);
+        img.loadPixels();
+        for (let i = 0; i < img.width; i++) {
+            for (let j = 0; j < img.height; j++) {
+                let outputs = photos[k].feedforward([i / photoWidth, j / photoHeight]); //, Math.sqrt((i/width)**2 + (j/height)**2)
+                //img.set(i, j, color(Math.abs(outputs[0]), Math.abs(outputs[1]), Math.abs(outputs[2])));
+                img.set(i, j, color(outputs[0], outputs[1], outputs[2]));
+            }
+        }
+        img.updatePixels();
+        image(img, x, y);
+        x += photoWidth;
+        if (x == width){
+            x= 0;
+            y += photoWidth;
         }
     }
-    img.updatePixels();
-    image(img, 0, 0);
+    
 }
