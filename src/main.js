@@ -1,5 +1,5 @@
-let width = 512;
-let height = 512;
+let width = 720;
+let height = 720;
 
 let img;
 let g;
