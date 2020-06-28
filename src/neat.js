@@ -254,7 +254,7 @@ function roulette(genomes, toSelect) {
     while (toSelect > 0) {
         //console.log(`toSelect: ${toSelect}`);
         //assign probs based on fitness
-        let probs = []; //prob we select each one of of the genomes.
+        let probs = []; //prob we select each one of the genomes.
         let tot = 0; //total fitness totaller
         for (let i = 0; i < left.length; i++) {
             tot += left[i].fitness;
@@ -273,9 +273,9 @@ function roulette(genomes, toSelect) {
         //select new dude based on fitness
         for (let i = 0; i < left.length; i++) {
             if (rand > other && rand < probs[i]) {
-                selected.push(left[i]);
+                selected.push(left[i].clone());
                 //console.log(`ADDED ${left[i]}`);
-                left.splice(i, 1);//removes the genome from the ones that are left in mating pool
+                //left.splice(i, 1);//removes the genome from the ones that are left in mating pool
                 toSelect -= 1; //we selected one , so we have toselect-1 left to selects
                 break;
             } else {
