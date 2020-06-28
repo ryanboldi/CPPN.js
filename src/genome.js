@@ -115,7 +115,7 @@ class Genome {
 
     mu_change_node(){
         //pick a random node that isnt an input or bias
-        picked = Math.floor(random()*(this.nodes.length - (this.inputs + 1)))
+        let picked = Math.floor(random()*(this.nodes.length - (this.inputs + 1)))
         picked += (this.inputs + 1);
         this.nodes[picked].activation = random(funcs);
     }
