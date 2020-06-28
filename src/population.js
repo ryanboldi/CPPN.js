@@ -48,20 +48,6 @@ class Population {
         //console.log(this.species);
     }
 
-    //assigns every genomes .fitness value to the fitness function
-    fitness() {
-        let tot = 0;
-        for (let i = 0; i < this.genomes.length; i++) {
-            //this.genomes[i].fitness = getFitXOR(this.genomes[i]);
-            tot += this.genomes[i].fitness
-            //if (getFitXOR(this.genomes[i]) > this.bestFitness) {
-              //  this.bestFitness = getFitXOR(this.genomes[i]);
-              //  this.bestCreature = this.genomes[i];
-           // }
-        }
-        this.averageFitness = (tot / this.genomes.length);
-    }
-
     //makes next generation's population based on fitness
     makeNext() {
         this.speciate();
@@ -70,12 +56,6 @@ class Population {
         //FITNESS SHARING Offspring = (AverageSpeciesFitness / Total_of_AverageSpeciesFitnesss) * PopulationSize
         let newPop = [];
         let interspecies = []; //genomes that have been selected to mate with other species. they will be inserted into a random species' mating pool
-
-        let tot_avg_fitness = 0;
-        for (let i = 0; i < this.species.length; i++) {
-            tot_avg_fitness += this.species[i].getAveFit();
-            this.species[i].getBestFit();
-        }
 
         //console.log(this.species);
 
