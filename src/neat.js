@@ -47,11 +47,50 @@ step = (x) => {
     if (x == 0) return 0;
 };
 
-none = (x) => { return x };
+identity = (x) => { return x };
+
+abs = (x) => {return Math.abs(x)}
+
+gauss = (x) => {return Math.gauss(x)}
+
+mod = (x) => {return (x % 1)};
+
 
 function normalise(val, minVal, maxVal, newMin, newMax) {
     return newMin + (val - minVal) * (newMax - newMin) / (maxVal - minVal);
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //initialize the population
