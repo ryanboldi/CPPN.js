@@ -54,14 +54,20 @@ abs = (x) => { return Math.abs(x) }
 
 gauss = (x) => { return (exp((-1 / 2) * (x ** 2))) }
 
-mod = (x) => { return (x % 1) };
+mod1 = (x) => { return (x % 1) };
 
 sine = (x) => {
     angleMode(RADIANS)
     return (sin(x))
 }
 
-let funcs = [tanh, sigmoid, identity, abs, gauss, mod, sine];
+mod5 = (x) => {return (x % 5)}
+
+
+
+
+
+let funcs = [tanh, step, identity, abs, gauss, mod1, sine, mod5];
 
 
 function normalise(val, minVal, maxVal, newMin, newMax) {
