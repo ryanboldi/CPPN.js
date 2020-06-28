@@ -19,7 +19,7 @@ function draw() {
     //for (let i = 0; i< 100; i++){
      //   g.mu_add_node();
     //}
-    colorMode(RGB, 1);
+    colorMode(RGB, 0.1);
     for (let i = 0; i < img.width; i++) {
         for (let j = 0; j < img.height; j++) {
             let outputs = g.feedforward([i/width, j/height]); //, Math.sqrt((i/width)**2 + (j/height)**2)
