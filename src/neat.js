@@ -51,9 +51,12 @@ identity = (x) => { return x };
 
 abs = (x) => {return Math.abs(x)}
 
-gauss = (x) => {return Math.gauss(x)}
+gauss = (x) => {
+    return (exp((-1/2)*(x**2)))
+}
 
 mod = (x) => {return (x % 1)};
+
 
 
 function normalise(val, minVal, maxVal, newMin, newMax) {
