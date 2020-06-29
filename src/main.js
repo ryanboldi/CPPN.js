@@ -20,9 +20,6 @@ function setup() {
 }
 
 function draw() {
-    for (let i = 0; i < photos.length; i++){
-        photos[i].Mutate();
-    }
     drawPhoto();
     
     //g.Mutate();
@@ -68,4 +65,13 @@ function drawPhoto() {
         }
     }
     
+}
+
+function cross(parent1, parent2){
+    let p1 = photos[parent1];
+    let p2 = photos[parent2];
+    for (let i = 0; i < photos.length; i++){
+        photos[i] = crossover(p1,p2);
+        photos[i].Mutate();
+     }
 }
