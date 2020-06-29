@@ -18,10 +18,11 @@ function setup() {
     for (let i = 0; i < photoAmt; i++) {
         photos.push(new Genome(3, 3));
     }
+    drawPhoto();
 }
 
 function draw() {
-    drawPhoto();
+    
 
     //g.Mutate();
 
@@ -60,12 +61,14 @@ function drawPhoto() {
         }
         img.updatePixels();
         image(img, x, y);
+
         if (selected[k] == 1) {
             stroke(0, 1, 0);
             strokeWeight(3);
             noFill();
             rect(x, y, photoWidth, photoHeight);
         }
+
         x += photoWidth;
         if (x == width) {
             x = 0;
@@ -102,6 +105,8 @@ function mousePressed() {
         else if (selected[index] == 0) selected[index] = 1;
     }
 
+    drawPhoto();
+
     //console.log(selected);
 }
 
@@ -115,6 +120,7 @@ function keyPressed() {
         }
         crossMult(parents);
         selected = new Array(photoAmt).fill(0);
+        drawPhoto();
     }
 }
 
