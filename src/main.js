@@ -15,7 +15,7 @@ let photos = [];
 function setup() {
     createCanvas(width, height);
     for (let i = 0; i < photoAmt; i++) {
-        photos.push(new Genome(3, 1));
+        photos.push(new Genome(3, 3));
     }
 }
 
@@ -53,7 +53,7 @@ function drawPhoto() {
             for (let j = 0; j < img.height; j++) {
                 let outputs = photos[k].feedforward([i / photoWidth, j / photoHeight, distFromCenter(i/photoWidth, j/photoHeight)]); //, Math.sqrt((i/width)**2 + (j/height)**2)
                 //img.set(i, j, color(Math.abs(outputs[0]), Math.abs(outputs[1]), Math.abs(outputs[2])));
-                img.set(i, j, color(step(outputs[0])));
+                img.set(i, j, color(outputs[0], outputs[1], outputs[2]));
             }
         }
         img.updatePixels();
@@ -79,4 +79,11 @@ function cross(parent1, parent2){
 //X AND Y BOTH OUT OF 1
 function distFromCenter(x,y){
     return(Math.sqrt(Math.abs(x - 1/2)**2 + Math.abs(y - 1/2)**2));
+}
+
+function mousePressed(){
+    console.log(`clicked at ${Math.floor(mouseX/photoWidth)}, ${Math.floor(mouseY/photoHeight)}`);
+
+    let index = ((Math.floor(mouseY/photoHeight)) * Math.sqrt(photoAmt)) + Math.floor(mouseX/photoWidth);
+    console.log(index);
 }
