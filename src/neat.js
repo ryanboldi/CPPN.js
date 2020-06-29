@@ -13,14 +13,14 @@ N_cutoff = 1; //how big a genome has to be so that we normalise it's excess and 
 not_improve_cutoff = 15; // if the max fitness of the species doesnt increase in this many generations, the networks will not be allowed to reproduce
 //champion of each species with more than five networks was copied into next generation unchanged
 weight_mut_rate = 0.8;
-node_change_rate = 0.3; //change a node's activation
+node_change_rate = 0.5; //change a node's activation
 mut_toggle_enable_prob = 0.05;
 uniform_perturbance = 0.9; // if weights mutated, 90% chance they are uniformly perturbed. 10% they are assigned new random value
 disable_inherited_disabled_gene = 0.75;
 no_cross = 0.25;//0.25 //proportion of population to not cross over
 interspecies_mate_rate = 0.001;//0.001
-node_add_rate = 0.03;//0.03
-connec_add_rate = 0.05;
+node_add_rate = 0.4;//0.03
+connec_add_rate = 0.5;
 large_pop_connec_rate = 0.3; // if populations are very big, then we can tolerate a larger number of prospective species and greater topological diversity.
 
 survivalThreshold = 0.5;// top x% of population survive
@@ -50,19 +50,18 @@ step = (x) => {
 
 identity = (x) => { return x };
 
-abs = (x) => { return Math.abs(x) }
+abs = (x) => { return Math.abs(x-0.5) }
 
 gauss = (x) => { return ((exp((-1 / 2) * (((x-0.5)/0.5) ** 2)))/0.5) }
 
-mod1 = (x) => { return (x % 0.1) };
+mod1 = (x) => { return (x % 3) };
 
 sine = (x) => {
-    let rads = normalise(x, 0, 1, 0, PI)
-    angleMode(RADIANS);
-    return (sin(rads))
+    let rads = normalise(x, 0, 1, 0, 4*PI)
+    return (sin(rads));
 }
 
-mod5 = (x) => {return (x % 5)}
+mod5 = (x) => {return (x % 1)}
 
 squared = (x) => {return (x**2)}
 
@@ -71,7 +70,7 @@ doubled = (x) => {return x*2}
 
 
 
-let funcs = [identity, abs, gauss, mod1, sine, mod5, squared, doubled];
+let funcs = [ mod1, mod5];
 
 
 function normalise(val, minVal, maxVal, newMin, newMax) {
