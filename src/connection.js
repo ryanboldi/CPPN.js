@@ -16,7 +16,7 @@ class Connection {
         else this.innov_number = 0;
 
         if (randomW) {
-            this.weight = (Math.random() * 4) - 2; //random between -2 and 2
+            this.weight = (Math.random() * 16) - 8; //random between -8 and 8
         }
     }
     enable() {

@@ -10,7 +10,7 @@ class Node {
         if (this.type == 'i' || this.type == 'b') this.activation = identity; //DONT ACTIVATE INPUTS
         else if (activation) this.activation = activation;
         else this.activation = random(funcs); //assign a random actiavte frunction
-        this.value = (Math.random() * 2) - 1; //all values initilised at random between (-1 and 1)
+        this.value = (Math.random() * 16) - 8;  //all values initilised at random between (-8 and 8)
 
         this.incomingSignal = 0; //sum before activation
 
@@ -21,7 +21,7 @@ class Node {
 
     //adds up incoming signal, and sets value to the activated value
     engage() {
-        
+
         this.value = this.incomingSignal;
         this.incomingSignal = 0;
 

@@ -58,17 +58,20 @@ mod1 = (x) => { return (x % 1) };
 
 sine = (x) => {
     let rads = normalise(x, 0, 1, 0, PI)
-    angleMode(RADIANS)
+    angleMode(RADIANS);
     return (sin(rads))
 }
 
 mod5 = (x) => {return (x % 5)}
 
+squared = (x) => {return (x**2)}
+
+doubled = (x) => {return x*2}
 
 
 
 
-let funcs = [tanh, step, identity, abs, gauss, mod1, sine, mod5];
+let funcs = [identity, abs, gauss, mod1, sine, mod5, squared, doubled];
 
 
 function normalise(val, minVal, maxVal, newMin, newMax) {
