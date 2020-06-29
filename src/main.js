@@ -1,7 +1,7 @@
 
 
 let img;
-let photoAmt = 16 //SQUARE NUMBER
+let photoAmt = 9 //SQUARE NUMBER
 let photoWidth = 200;
 let photoHeight = 200;
 

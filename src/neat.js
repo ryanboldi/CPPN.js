@@ -52,9 +52,9 @@ identity = (x) => { return x };
 
 abs = (x) => { return Math.abs(x) }
 
-gauss = (x) => { return (exp((-1 / 2) * (x ** 2))) }
+gauss = (x) => { return ((exp((-1 / 2) * (((x-0.5)/0.5) ** 2)))/0.5) }
 
-mod1 = (x) => { return (x % 1) };
+mod1 = (x) => { return (x % 0.1) };
 
 sine = (x) => {
     let rads = normalise(x, 0, 1, 0, PI)
