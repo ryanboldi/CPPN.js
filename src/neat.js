@@ -19,8 +19,8 @@ uniform_perturbance = 0.9; // if weights mutated, 90% chance they are uniformly 
 disable_inherited_disabled_gene = 0.75;
 no_cross = 0.25;//0.25 //proportion of population to not cross over
 interspecies_mate_rate = 0.001;//0.001
-node_add_rate = 0.4;//0.03
-connec_add_rate = 0.5;
+node_add_rate = 0.8;//0.03
+connec_add_rate = 0.9;
 large_pop_connec_rate = 0.3; // if populations are very big, then we can tolerate a larger number of prospective species and greater topological diversity.
 
 survivalThreshold = 0.5;// top x% of population survive
@@ -52,16 +52,16 @@ identity = (x) => { return x };
 
 abs = (x) => { return Math.abs(x-0.5) }
 
-gauss = (x) => { return ((exp((-1 / 2) * (((x-0.5)/0.5) ** 2)))/0.5) }
+gauss = (x) => { return ((Math.E ** ((-1 / 2) * (((x-0.5)/0.5) ** 2)))/0.5) }
 
-mod1 = (x) => { return (x % 3) };
+mod1 = (x) => { return (x % 0.1) };
 
 sine = (x) => {
-    let rads = normalise(x, 0, 1, 0, 4*PI)
+    let rads = normalise(x, 0, 1, 0, 40*PI)
     return (sin(rads));
 }
 
-mod5 = (x) => {return (x % 1)}
+mod5 = (x) => {return (x % 0.05)}
 
 squared = (x) => {return (x**2)}
 
@@ -70,7 +70,7 @@ doubled = (x) => {return x*2}
 
 
 
-let funcs = [ mod1, mod5];
+let funcs = [ sine, gauss, identity, mod1, mod5];
 
 
 function normalise(val, minVal, maxVal, newMin, newMax) {

@@ -47,7 +47,7 @@ function drawPhoto() {
     //}
     let x = 0;
     let y = 0;
-    colorMode(RGB, 1);
+    colorMode(HSB, 0.9);
     for (let k = 0; k < photos.length; k++) {
         img = createImage(photoWidth, photoHeight);
         img.loadPixels();
