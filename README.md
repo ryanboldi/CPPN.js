@@ -2,9 +2,9 @@
  My Implementation of a Compositional Pattern Producing Network.
  
  This was written using:
- - [https://p5js.org/](p5.js to draw)
- - [https://lodash.com/](Lodash.js to handle deep cloning)
- - [https://github.com/ryanboldi/NEAT](NEAT implementation by me)
+ - [p5.js to draw](https://p5js.org/)
+ - [Lodash.js to handle deep cloning](https://lodash.com/)
+ - [NEAT implementation by me](https://github.com/ryanboldi/NEAT)
  
 
 ## Random Starting Population of CPPNs
